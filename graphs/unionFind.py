@@ -1,11 +1,11 @@
 __author__ = 'Chandu'
 
 class Edge:
-        src = -1
-        dest = -1
-        def __init__(self,src,dest):
-            self.src = src
-            self.dest = dest
+    src = -1
+    dest = -1
+    def __init__(self,src,dest):
+        self.src = src
+        self.dest = dest
 
 class graph:
     v = 0
@@ -22,9 +22,7 @@ class graph:
         else:
             return self.find(parent,parent[i])
 
-    def union(self,parent,x,y):
-        par_x = self.find(parent,x)
-        par_y = self.find(parent,y)
+    def union(self,parent,par_x,par_y):
         parent[par_x] = par_y
 
     def isCycle(self):
@@ -36,7 +34,7 @@ class graph:
             if par_src == par_dest:
                 return True
 
-            parent[par_src] = par_dest
+            self.union(parent,par_src,par_dest)
         return False
 
 if __name__ == "__main__":
